@@ -1,3 +1,24 @@
+html,
+body {
+  height: 100%;
+  background-color: #333;
+   background-image: url("http://georgeyanakiev.com/donterase/wp-content/uploads/2015/03/IMG_3402.jpg");
+    background-position: center center;
+  
+  background-repeat: no-repeat;
+  
+  /* Makes the image fixed in the viewport so that it doesn't move when 
+     the content height is greater than the image height */
+  background-attachment: fixed;
+  
+  /* This is what makes the background image rescale based on its container's size */
+  background-size: cover;
+  
+  /* Pick a solid background color that will be displayed while the background image is loading */
+  background-color:#464646;
+  
+}
+
 /*  SECTIONS  */
 .section {
 	clear: both;
