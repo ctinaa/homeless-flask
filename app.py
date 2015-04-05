@@ -41,12 +41,12 @@ def fb():
 			user_lastname = data['lastname']
 			user_email = data['email']
 
-		new_user = User(user_id, user_firstname, user_lastname, user_firstname, user_email, bio="")
+			new_user = User(user_id, user_firstname, user_lastname, user_firstname, user_email, bio="")
 
-		db.session.add(new_user)
-		db.session.commit() 
+			db.session.add(new_user)
+			db.session.commit() 
 
-		return render_template('fb_test.html', id=user_id, firstname=user_firstname)
+			return render_template('fb_test.html', id=user_id, firstname=user_firstname)
 
 	else: 
 		return render_template('indexx.html')
