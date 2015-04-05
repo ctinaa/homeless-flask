@@ -13,12 +13,12 @@ def signin():
 	return render_template('signin.html')
 
 @app.route('/signon')
-def signin():
+def signon():
 	return render_template('signon.html')
 
 
 @app.route('/profile')
-def signin():
+def profile():
 	return render_template('profile.html')
 
 if __name__ == '__main__':
