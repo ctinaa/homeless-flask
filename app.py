@@ -23,6 +23,9 @@ def get_db():
         db = g._database = connect_to_database()
     return db
 
+with app.app_context():
+	get_db()
+	
 @app.teardown_appcontext
 def close_connection(exception):
     db = getattr(g, '_database', None)
@@ -50,7 +53,6 @@ class User(db.Model):
 		# self.active = active 
 
 with app.app_context():
-	get_db()
 	db.create_all()
 	db.session.commit() 
 
