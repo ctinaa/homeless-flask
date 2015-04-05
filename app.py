@@ -16,6 +16,15 @@ def home():
 def login():
 	return render_template('login3.html')
 
+@app.route('/fb_test')
+def fb(): 
+	data = facebook.get('/me').data
+	if 'id' in data and 'name' in data: 
+		user_id = data['id']
+		user_name = data['name']
+
+	return render_template('fb_test.html', id=user_id, name=user_name)
+
 #----------------------------------------
 # facebook authentication
 #----------------------------------------
