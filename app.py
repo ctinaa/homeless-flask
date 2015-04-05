@@ -12,9 +12,7 @@ app = Flask(__name__)
 app.secret_key = "super secret"
 
 # SQLALCHEMY_DATABASE_URI = 'sqlite:///' + os.path.join(basedir, 'app.db')
-# db = SQLAlchemy() 
-import sqlite3
-from flask import g
+db = Awesome.db
 
 DATABASE = 'app.db'
 
@@ -27,12 +25,12 @@ DATABASE = 'app.db'
 # with app.app_context():
 # 	get_db()
 
-db = sqlite3.sqlite3()
-@app.teardown_appcontext
-def close_connection(exception):
-    db = getattr(g, '_database', None)
-    if db is not None:
-        db.close()
+# db = sqlite3.sqlite3()
+# @app.teardown_appcontext
+# def close_connection(exception):
+#     db = getattr(g, '_database', None)
+#     if db is not None:
+#         db.close()
 
 class User(db.Model):
 	id = db.Column(db.Integer, primary_key=True)
