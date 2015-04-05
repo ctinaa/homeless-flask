@@ -15,4 +15,4 @@ class User(db.Model):
 		self.lastname = lastname
 		self.username = username
 		self.email = email
-		seld.bio = bio 
+		self.bio = bio 
