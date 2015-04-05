@@ -34,7 +34,8 @@ def login():
 @app.route('/fb_test')
 def fb(): 
 	data = facebook.get('/me').data
-	if 'id' in data and 'firstname' in data and 'lastname' in data and 'email' in data: 			user_id = data['id']
+	if 'id' in data and 'firstname' in data and 'lastname' in data and 'email' in data: 			
+		user_id = data['id']
 		user_firstname = data['firstname']
 		user_lastname = data['lastname']
 		user_email = data['email']
