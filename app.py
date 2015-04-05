@@ -5,11 +5,11 @@ from flask_oauth import OAuth
 # from models import db
 # from settings import *
 # from utilities import * 
-
+from sys import * 
+from os import *
 app = Flask(__name__) 
 app.secret_key = "super secret"
 
-import os
 basedir = os.path.abspath(os.path.dirname(__file__))
 SQLALCHEMY_DATABASE_URI = 'sqlite:///' + os.path.join(basedir, 'app.db')
 SQLALCHEMY_MIGRATE_REPO = os.path.join(basedir, 'db_repository')
