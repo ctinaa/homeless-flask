@@ -221,14 +221,7 @@ position: relative;
 	width: 100%;
 	float: left;
 }
-.circular {
-	width: 150px;
-	height: 150px;
-	border-radius: 150px;
-	-webkit-border-radius: 150px;
-	-moz-border-radius: 150px;
-	background: url(images.jpeg) no-repeat;
-	position: relative;
+
 
 	}
 .rectangle {
