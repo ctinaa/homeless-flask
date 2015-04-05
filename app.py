@@ -29,6 +29,10 @@ def close_connection(exception):
     if db is not None:
         db.close()
 
+@app.route('/')
+def home(): 
+	get_db()
+	return render_template('index.html')
 
 class User(db.Model):
 	id = db.Column(db.Integer, primary_key=True)
@@ -54,10 +58,6 @@ with app.app_context():
 	db.create_all()
 	db.session.commit() 
 
-@app.route('/')
-def home(): 
-	get_db()
-	return render_template('index.html')
 
 
 @app.route('/login')
