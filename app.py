@@ -2,6 +2,7 @@
 
 from flask import * 
 from flask_oauth import OAuth
+from sqlite3 import *
 # from models import db
 # from settings import *
 # from utilities import * 
@@ -26,7 +27,7 @@ DATABASE = 'app.db'
 # with app.app_context():
 # 	get_db()
 
-db = sqlite
+db = sqlite3
 @app.teardown_appcontext
 def close_connection(exception):
     db = getattr(g, '_database', None)
