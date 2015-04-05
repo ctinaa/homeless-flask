@@ -10,8 +10,8 @@ from sys import *
 from os import *
 
 connection = "mysql://%s:%s@%s:3306/%s" % (
-	root, lahacks,
-	localhost, homeless)
+	'root', 'lahacks',
+	'localhost', 'homeless')
 
 app = Flask(__name__) 
 app.config['SQLALCHEMY_DATABASE_URI'] = connection 
