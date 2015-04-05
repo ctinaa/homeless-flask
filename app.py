@@ -24,7 +24,6 @@ with app.app_context():
 
 @app.route('/')
 def home(): 
-	get_db()
 	return render_template('index.html')
 
 
