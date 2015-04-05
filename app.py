@@ -36,8 +36,8 @@ def fb():
 	data = facebook.get('/me').data
 	#if 'id' in data and 'firstname' in data and 'lastname' in data and 'email' in data: 			
 	user_id = data['id']
-	user_firstname = data['firstname']
-	user_lastname = data['lastname']
+	user_firstname = data['first_name']
+	user_lastname = data['last_name']
 	user_email = data['email']
 
 		#new_user = User(user_id, user_firstname, user_lastname, user_firstname, user_email, bio="")
