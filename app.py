@@ -31,6 +31,24 @@ def home():
 def login():
 	return render_template('login3.html')
 
+@app.route('/signin')
+def signin():
+    return render_template('signin.html')
+
+@app.route('/signon')
+def signon():
+    return render_template('signon.html')
+
+
+@app.route('/profile')
+def profile():
+    return render_template('profile.html')
+
+
+@app.route('/howitworks')
+def howitworks():
+    return render_template('howitworks.html')
+
 @app.route('/fb_test')
 def fb(): 
 	data = facebook.get('/me').data
