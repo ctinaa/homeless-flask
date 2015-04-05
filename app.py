@@ -29,8 +29,6 @@ def close_connection(exception):
     if db is not None:
         db.close()
 
-get_db()
-
 class User(db.Model):
 	id = db.Column(db.Integer, primary_key=True)
 	firstname = db.Column(db.String(200))
@@ -52,6 +50,7 @@ class User(db.Model):
 		# self.active = active 
 
 with app.app_context():
+	get_db()
 	db.create_all()
 	db.session.commit() 
 
