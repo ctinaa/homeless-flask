@@ -171,10 +171,17 @@ body {
 }
 
 h1 {
-  font-size: 80px;
+  font-size: 75px;
   color: white; 
 
 }
+
+h2 {
+  font-size: 30px;
+  color: white; 
+
+}
+
 
 /**************************
   DEFAULT BOOTSTRAP STYLES
