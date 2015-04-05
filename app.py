@@ -53,17 +53,18 @@ def howitworks():
 def fb(): 
 	data = facebook.get('/me').data
 	#if 'id' in data and 'firstname' in data and 'lastname' in data and 'email' in data: 			
-	user_id = data['id']
+	# user_id = data['id']
 	user_firstname = data['first_name']
 	user_lastname = data['last_name']
 	user_email = data['email']
 
-	new_user = User(user_id, user_firstname, user_lastname, user_firstname, user_email)
+	new_user = User(user_firstname, user_lastname, user_firstname, user_email)
 
-	db.session.add(new_user)
-	db.session.commit() 
+    if not User.query.filter(email=user_email).count():
+    	db.session.add(new_user)
+    	db.session.commit() 
 
-	return render_template('fb_test.html', id=user_id, firstname=user_firstname)
+	return render_template('profile.html', firstname=user_firstname, lastname=user_lastname)
 #----------------------------------------
 # facebook authentication
 #----------------------------------------
@@ -102,7 +103,7 @@ def facebook_login():
 @app.route("/facebook_authorized")
 @facebook.authorized_handler
 def facebook_authorized(resp):
-    next_url = request.args.get('next') or url_for('home')
+    next_url = request.args.get('next') or url_for('fb')
     if resp is None or 'access_token' not in resp:
         return redirect(next_url)
 
