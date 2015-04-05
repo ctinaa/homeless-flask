@@ -17,15 +17,16 @@ from flask import g
 
 DATABASE = 'app.db'
 
-def get_db():
-    db = getattr(g, '_database', None)
-    if db is None:
-        db = g._database = connect_to_database()
-    return db
+# def get_db():
+#     db = getattr(g, '_database', None)
+#     if db is None:
+#         db = g._database = connect_to_database()
+#     return db
 
-with app.app_context():
-	get_db()
-	
+# with app.app_context():
+# 	get_db()
+
+db = sqlite3()
 @app.teardown_appcontext
 def close_connection(exception):
     db = getattr(g, '_database', None)
