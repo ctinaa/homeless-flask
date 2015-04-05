@@ -70,8 +70,8 @@ def fb():
 
 
 
-FACEBOOK_APP_ID = '1626770800876369'
-FACEBOOK_APP_SECRET = '34a81ae3bad388550d59284c9e2422c4'
+FACEBOOK_APP_ID = '1411581279157960'
+FACEBOOK_APP_SECRET = '7e0c69fba4ccf386f905e11451f53e46'
 
 oauth = OAuth()
 
@@ -84,6 +84,7 @@ facebook = oauth.remote_app('facebook',
     consumer_secret=FACEBOOK_APP_SECRET,
     request_token_params={'scope': ('email, ')}
 )
+
 
 @facebook.tokengetter
 def get_facebook_token():
