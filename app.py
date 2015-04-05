@@ -26,8 +26,8 @@ DATABASE = 'app.db'
 
 # with app.app_context():
 # 	get_db()
+con = sqlite3.connect('app.db')
 
-db = sqlite3.sqlite3()
 @app.teardown_appcontext
 def close_connection(exception):
     db = getattr(g, '_database', None)
