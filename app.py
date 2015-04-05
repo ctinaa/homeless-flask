@@ -57,13 +57,13 @@ def fb():
 	user_firstname = data['first_name']
 	user_lastname = data['last_name']
 	user_email = data['email']
-    bio = '' 
+    	bio = '' 
     
 	new_user = User(user_firstname, user_lastname, user_firstname, user_email, bio)
 
-    if not User.query.filter(email=user_email).count():
-    	db.session.add(new_user)
-    	db.session.commit() 
+        if not User.query.filter(email=user_email).count():
+            db.session.add(new_user)
+            db.session.commit() 
 
 	return render_template('profile.html', firstname=user_firstname, lastname=user_lastname)
 #----------------------------------------
