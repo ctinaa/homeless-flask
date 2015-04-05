@@ -40,7 +40,18 @@ position: relative;
 	position: relative;
 
 	}
-
+.rectangle {
+	width:900px;
+	height:1200px;
+    -webkit-border-radius: 99px 0px 99px 0px;
+    -moz-border-radius: 99px 0px 99px 0px;
+    border-radius: 99px 0px 99px 0px;
+    border:10px solid #ADFFD9;
+    background:rgba(141,227,152,0.5);
+    -webkit-box-shadow: #B3B3B3 36px 36px 36px;
+    -moz-box-shadow: #B3B3B3 36px 36px 36px; 
+    box-shadow: #B3B3B3 36px 36px 36px;
+}
 /*  GO FULL WIDTH BELOW 480 PIXELS */
 @media only screen and (max-width: 480px) {
 	.col {  margin: 1% 0 1% 0%; }
