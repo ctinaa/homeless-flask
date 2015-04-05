@@ -6,8 +6,8 @@ from flask_oauth import OAuth
 # from settings import *
 # from utilities import * 
 
-# import os
-# basedir = os.path.abspath(os.path.dirname(__file__))
+import os
+basedir = os.path.abspath(os.path.dirname(__file__))
 
 app = Flask(__name__) 
 app.secret_key = "super secret"
