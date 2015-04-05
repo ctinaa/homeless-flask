@@ -176,6 +176,10 @@ h1 {
 
 }
 
+/**************************
+  DEFAULT BOOTSTRAP STYLES
+**************************/
+
 .btn {
   display: inline-block;
   padding: 6px 12px;
@@ -204,9 +208,9 @@ h1 {
 }
 
 .btn-primary {
-  color: #fff;
-  background-color: #428bca;
-  border-color: #357ebd;
+  color: white;
+  background-color: white;
+  border-color: white;
 }
 
 .btn-primary:hover,
@@ -214,9 +218,9 @@ h1 {
 .btn-primary:active,
 .btn-primary.active,
 .open .dropdown-toggle.btn-primary {
-  color: #fff;
-  background-color: #3276b1;
-  border-color: #285e8e;
+  color: white;
+  background-color: white;
+  border-color: white;
 }
 
 /***********************
@@ -224,21 +228,21 @@ h1 {
 ************************/
 
 .btn.outline {
-    background: none;
-    padding: 12px 22px;
+  background: none;
+  padding: 12px 22px;
 }
 .btn-primary.outline {
-    border: 2px solid #0099cc;
-    color: #0099cc;
+  border: 2px solid white;
+  color: white;
 }
 .btn-primary.outline:hover, .btn-primary.outline:focus, .btn-primary.outline:active, .btn-primary.outline.active, .open > .dropdown-toggle.btn-primary {
-    color: #33a6cc;
-    border-color: #33a6cc;
+  color: white;
+  border-color: white;
 }
 .btn-primary.outline:active, .btn-primary.outline.active {
-    border-color: #007299;
-    color: #007299;
-    box-shadow: none;
+  border-color: white;
+  color: white;
+  box-shadow: none;
 }
 
 /***********************
@@ -246,16 +250,15 @@ h1 {
 ************************/
 
 .btn {
-    padding: 14px 24px;
-    border: 0 none;
-    font-weight: 700;
-    letter-spacing: 1px;
-    text-transform: uppercase;
+  padding: 14px 24px;
+  border: 0 none;
+  font-weight: 700;
+  letter-spacing: 1px;
+  text-transform: uppercase;
 }
 .btn:focus, .btn:active:focus, .btn.active:focus {
-    outline: 0 none;
+  outline: 0 none;
 }
-
 
 @media (min-width: 992px) {
   .masthead,
