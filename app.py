@@ -53,7 +53,7 @@ def facebook_login():
 @app.route("/facebook_authorized")
 @facebook.authorized_handler
 def facebook_authorized(resp):
-    next_url = request.args.get('next') or url_for('index')
+    next_url = request.args.get('next') or url_for('home')
     if resp is None or 'access_token' not in resp:
         return redirect(next_url)
 
@@ -65,6 +65,6 @@ def facebook_authorized(resp):
 @app.route("/logout")
 def logout():
     pop_login_session()
-    return redirect(url_for('index'))
+    return redirect(url_for('home'))
 if __name__ == '__main__':
 	app.run(host='0.0.0.0', port=80, debug=True)
