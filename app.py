@@ -1,11 +1,43 @@
 #!/usr/bin/python 
 
 from flask import * 
-from flask import url_for, request, session, redirect
 from flask_oauth import OAuth
+from models import db
+from settings import *
+from utilities import * 
+
+# import os
+# basedir = os.path.abspath(os.path.dirname(__file__))
 
 app = Flask(__name__) 
 app.secret_key = "super secret"
+SQLALCHEMY_DATABASE_URI = 'sqlite:///' + os.path.join(basedir, 'app.db')
+
+db = SQLAlchemy() 
+
+class User(db.Model):
+	id = db.Column(db.Integer, primary_key=True)
+	firstname = db.Column(db.String(200))
+	lastname = db.Column(db.String(200))
+	username = db.Column(db.String(200), unique=True)
+	email = db.Column(db.String(200), unique=True)
+	# password = db.Column(db.String(200))
+	# created_date = db.Column(db.DateTime)
+	# updated_date = db.Column(db.DateTime)
+	# active = db.Column(db.Boolean, default=True)
+	def __init__(self, firstname, lastname, username, email):
+		self.firstname = firstname
+		self.lastname = lastname
+		self.username = username
+		self.email = email
+		# self.password = password
+		# self.created_date = created_date
+		# self.updated_date = updated_date
+		# self.active = active 
+
+with app.app_context():
+	db.create_all()
+	db.session.commit() 
 
 @app.route('/')
 def home(): 
@@ -19,9 +51,11 @@ def login():
 @app.route('/fb_test')
 def fb(): 
 	data = facebook.get('/me').data
-	if 'id' in data and 'name' in data: 
+	if 'id' in data and 'firstname' in data and 'lastname' in data and 'email' in data: 
 		user_id = data['id']
-		user_name = data['name']
+		user_firstname = data['firstname']
+		user_lastname = data['lastname']
+		user_email = data['email']
 
 	return render_template('fb_test.html', id=user_id, name=user_name)
 
