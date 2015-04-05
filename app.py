@@ -21,5 +21,11 @@ def signon():
 def profile():
 	return render_template('profile.html')
 
+
+@app.route('/howitworks')
+def howitworks():
+	return render_template('howitworks.html')
+
+
 if __name__ == '__main__':
 	app.run(host='0.0.0.0', debug=True)
