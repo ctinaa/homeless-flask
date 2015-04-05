@@ -1,8 +1,11 @@
 #!/usr/bin/python 
 
 from flask import * 
+from flask import url_for, request, session, redirect
+from flask_oauth import OAuth
 
 app = Flask(__name__) 
+app.secret_key = "super secret"
 
 @app.route('/')
 def home(): 
@@ -17,8 +20,7 @@ def login():
 # facebook authentication
 #----------------------------------------
 
-from flask import url_for, request, session, redirect
-from flask_oauth import OAuth
+
 
 FACEBOOK_APP_ID = '1626770800876369'
 FACEBOOK_APP_SECRET = '34a81ae3bad388550d59284c9e2422c4'
