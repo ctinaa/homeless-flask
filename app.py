@@ -2,19 +2,20 @@
 
 from flask import * 
 from flask_oauth import OAuth
+from models import User, db 
+import sqlite3 
 # from sqlite3 import sqlite3
 # from models import db
-# from settings import *
-# from utilities import * 
 from sys import * 
 from os import *
 app = Flask(__name__) 
 app.secret_key = "super secret"
 
 # SQLALCHEMY_DATABASE_URI = 'sqlite:///' + os.path.join(basedir, 'app.db')
-db = Awesome.db
 
 DATABASE = 'app.db'
+db.init_app(app) 
+
 
 # def get_db():
 #     db = getattr(g, '_database', None)
@@ -32,25 +33,6 @@ DATABASE = 'app.db'
 #     if db is not None:
 #         db.close()
 
-class User(db.Model):
-	id = db.Column(db.Integer, primary_key=True)
-	firstname = db.Column(db.String(200))
-	lastname = db.Column(db.String(200))
-	username = db.Column(db.String(200), unique=True)
-	email = db.Column(db.String(200), unique=True)
-	# password = db.Column(db.String(200))
-	# created_date = db.Column(db.DateTime)
-	# updated_date = db.Column(db.DateTime)
-	# active = db.Column(db.Boolean, default=True)
-	def __init__(self, firstname, lastname, username, email):
-		self.firstname = firstname
-		self.lastname = lastname
-		self.username = username
-		self.email = email
-		# self.password = password
-		# self.created_date = created_date
-		# self.updated_date = updated_date
-		# self.active = active 
 
 with app.app_context():
 	db.create_all()
