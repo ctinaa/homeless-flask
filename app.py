@@ -2,32 +2,19 @@
 
 from flask import * 
 from flask_oauth import OAuth
-# from models import db
-# from settings import *
-# from utilities import * 
+from models import db
+from settings import *
+from utilities import * 
 
-import sqlite3
-from flask import g
+app = Flask(__name__) 
+app.secret_key = "super secret"
 
-DATABASE = 'fb.db'
+import os
+basedir = os.path.abspath(os.path.dirname(__file__))
+SQLALCHEMY_DATABASE_URI = 'sqlite:///' + os.path.join(basedir, 'app.db')
+SQLALCHEMY_MIGRATE_REPO = os.path.join(basedir, 'db_repository')
 
-def get_db():
-    db = getattr(g, '_database', None)
-    if db is None:
-        db = g._database = connect_to_database()
-    return db
-
-# @app.teardown_appcontext
-# def close_connection(exception):
-#     db = getattr(g, '_database', None)
-#     if db is not None:
-#         db.close()
-# import os
-# basedir = os.path.abspath(os.path.dirname(__file__))
-# SQLALCHEMY_DATABASE_URI = 'sqlite:///' + os.path.join(basedir, 'app.db')
-# SQLALCHEMY_MIGRATE_REPO = os.path.join(basedir, 'db_repository')
-# app = Flask(__name__) 
-# app.secret_key = "super secret"
+db = SQLAlchemy() 
 
 class User(db.Model):
 	id = db.Column(db.Integer, primary_key=True)
@@ -71,7 +58,7 @@ def fb():
 		user_lastname = data['lastname']
 		user_email = data['email']
 
-	return render_template('fb_test.html', id=user_id, name=user_name)
+	return render_template('fb_test.html', id=user_id, firstname=user_firstname)
 
 #----------------------------------------
 # facebook authentication
