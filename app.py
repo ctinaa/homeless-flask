@@ -3,7 +3,7 @@
 from flask import * 
 from flask_oauth import OAuth
 # from models import db
-from settings import *
+# from settings import *
 from utilities import * 
 
 # import os
