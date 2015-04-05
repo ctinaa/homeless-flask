@@ -40,7 +40,7 @@ def fb():
 	user_lastname = data['last_name']
 	user_email = data['email']
 
-	new_user = User(user_id, user_firstname, user_lastname, user_firstname, user_email, bio="")
+	new_user = User(user_id, user_firstname, user_lastname, user_firstname, user_email)
 
 	db.session.add(new_user)
 	db.session.commit() 
