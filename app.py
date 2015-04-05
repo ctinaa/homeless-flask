@@ -19,8 +19,8 @@
 from flask import url_for, request, session, redirect
 from flask_oauth import OAuth
 
-FACEBOOK_APP_ID = '000000000000000'
-FACEBOOK_APP_SECRET = '0a0b0c00000000000000000000x0y0z0'
+FACEBOOK_APP_ID = '1626770800876369'
+FACEBOOK_APP_SECRET = '34a81ae3bad388550d59284c9e2422c4'
 
 oauth = OAuth()
 
