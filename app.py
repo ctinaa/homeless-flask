@@ -2,9 +2,9 @@
 
 from flask import * 
 from flask_oauth import OAuth
-from models import db
-from settings import *
-from utilities import * 
+# from models import db
+# from settings import *
+# from utilities import * 
 
 import sqlite3
 from flask import g
