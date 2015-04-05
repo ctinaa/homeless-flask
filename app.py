@@ -8,31 +8,15 @@ import sqlite3
 # from models import db
 from sys import * 
 from os import *
+
+connection = "mysql://%s:%s@%s:3306/%s" % (
+	root, lahacks,
+	localhost, homeless)
+
 app = Flask(__name__) 
+app.config['SQLALCHEMY_DATABASE_URI'] = connection 
 app.secret_key = "super secret"
-
-# SQLALCHEMY_DATABASE_URI = 'sqlite:///' + os.path.join(basedir, 'app.db')
-
-DATABASE = 'app.db'
-db.init_app(app) 
-
-
-# def get_db():
-#     db = getattr(g, '_database', None)
-#     if db is None:
-#         db = g._database = connect_to_database()
-#     return db
-
-# with app.app_context():
-# 	get_db()
-
-# db = sqlite3.sqlite3()
-# @app.teardown_appcontext
-# def close_connection(exception):
-#     db = getattr(g, '_database', None)
-#     if db is not None:
-#         db.close()
-
+db.init_app(app)
 
 with app.app_context():
 	db.create_all()
