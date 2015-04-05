@@ -57,8 +57,9 @@ def fb():
 	user_firstname = data['first_name']
 	user_lastname = data['last_name']
 	user_email = data['email']
-
-	new_user = User(user_firstname, user_lastname, user_firstname, user_email)
+    bio = '' 
+    
+	new_user = User(user_firstname, user_lastname, user_firstname, user_email, bio)
 
     if not User.query.filter(email=user_email).count():
     	db.session.add(new_user)
