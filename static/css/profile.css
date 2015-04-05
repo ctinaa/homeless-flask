@@ -75,6 +75,7 @@ body {
 }
 
 
+
 /*
  * Header
  */
@@ -175,6 +176,17 @@ h1 {
   color: white; 
 
 }
+
+
+.circular {
+	width: 150px;
+	height: 150px;
+	border-radius: 150px;
+	-webkit-border-radius: 150px;
+	-moz-border-radius: 150px;
+	background: url(http://fc08.deviantart.net/fs8/i/2005/357/d/b/Homeless_Man_in_Cleveland_by_daveant.jpg) no-repeat;
+	}
+
 
 
 /*  SECTIONS  */
