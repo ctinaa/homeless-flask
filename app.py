@@ -10,11 +10,25 @@ from os import *
 app = Flask(__name__) 
 app.secret_key = "super secret"
 
-basedir = os.path.abspath(os.path.dirname(__file__))
-SQLALCHEMY_DATABASE_URI = 'sqlite:///' + os.path.join(basedir, 'app.db')
-SQLALCHEMY_MIGRATE_REPO = os.path.join(basedir, 'db_repository')
+# SQLALCHEMY_DATABASE_URI = 'sqlite:///' + os.path.join(basedir, 'app.db')
+# db = SQLAlchemy() 
+import sqlite3
+from flask import g
 
-db = SQLAlchemy() 
+DATABASE = 'app.db'
+
+def get_db():
+    db = getattr(g, '_database', None)
+    if db is None:
+        db = g._database = connect_to_database()
+    return db
+
+@app.teardown_appcontext
+def close_connection(exception):
+    db = getattr(g, '_database', None)
+    if db is not None:
+        db.close()
+
 
 class User(db.Model):
 	id = db.Column(db.Integer, primary_key=True)
