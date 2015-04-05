@@ -49,7 +49,7 @@ def fb():
 			return render_template('fb_test.html', id=user_id, firstname=user_firstname)
 
 	else: 
-		return render_template('indexx.html')
+		return render_template('index.html')
 #----------------------------------------
 # facebook authentication
 #----------------------------------------
