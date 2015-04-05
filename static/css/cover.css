@@ -170,6 +170,11 @@ body {
   }
 }
 
+h1 {
+  font-size: 50px;
+  color: white; 
+
+}
 @media (min-width: 992px) {
   .masthead,
   .mastfoot,
